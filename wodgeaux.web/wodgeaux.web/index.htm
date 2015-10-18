@@ -3,9 +3,10 @@
 <head>
     <title></title>
     <meta charset="utf-8"/>
+    <base href="/" />
 </head>
-<body ng-controller="LoginCtrl">
-<button ng-click="login()">Login</button>
+<body ng-controller="login.controller as vm">
+<button ng-click="vm.login()">Login</button>
 
 
 <script src="scripts/lib/jquery.js"></script>
@@ -18,37 +19,9 @@
 <script src="scripts/lib/auth0-lock.js"></script>
 <script src="scripts/lib/auth0-angular.js"></script>
 
-<script type="text/javascript">
-
-    // app.js
-    angular.module('app', ['auth0', 'angular-storage', 'angular-jwt'])
-        .config(function(authProvider) {
-            authProvider.init({
-                domain: 'jsteve81.auth0.com',
-                clientID: 'wycQ91mZPCrX53Wo9uxNPPF4ptREJyeI'
-            });
-        })
-        .run(function(auth) {
-            // This hooks al auth events to check everything as soon as the app starts
-            auth.hookEvents();
-        });
-
-    // LoginCtrl.js
-    angular.module('app').controller('LoginCtrl', ['$scope', '$http', 'auth', 'store', '$location',
-        function($scope, $http, auth, store, $location) {
-            $scope.login = function() {
-                auth.signin({}, function(profile, token) {
-                    // Success callback
-                    store.set('profile', profile);
-                    store.set('token', token);
-                    $location.path('/');
-                }, function() {
-                    // Error callback
-                });
-            }
-        }
-    ]);
-</script>
+    <script src="scripts/app/app.js"></script>
+    <script src="scripts/app/login/login.module.js"></script>
+<script src="scripts/app/login/login.controller.js"></script>
 
 </body>
 </html>
