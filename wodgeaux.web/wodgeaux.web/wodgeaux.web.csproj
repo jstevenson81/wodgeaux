@@ -84,8 +84,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="content\bootstrap\css\bootstrap.css" />
+    <Content Include="content\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="content\wodgeaux\css\wodgeaux.css">
+      <DependentUpon>wodgeaux.less</DependentUpon>
+    </Content>
+    <Content Include="content\wodgeaux\css\wodgeaux.min.css">
+      <DependentUpon>wodgeaux.css</DependentUpon>
+    </Content>
+    <Content Include="content\wodgeaux\images\header-background.jpg" />
     <Content Include="Global.asax" />
     <Content Include="index.htm" />
+    <Content Include="scripts\app\home\template.htm" />
+    <Content Include="scripts\app\user\template.htm" />
     <Content Include="scripts\lib\angular-cookies.js" />
     <Content Include="scripts\lib\angular-jwt.js" />
     <Content Include="scripts\lib\angular-route.js" />
@@ -106,6 +117,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <Content Include="content\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="content\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="content\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="content\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="content\wodgeaux\css\wodgeaux.less" />
+    <None Include="compilerconfig.json" />
+    <Content Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </Content>
+    <None Include="Properties\PublishProfiles\iristestapp.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -119,9 +140,14 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="scripts\app\app.interfaces.ts" />
     <TypeScriptCompile Include="scripts\app\app.ts" />
-    <TypeScriptCompile Include="scripts\app\login\login.controller.ts" />
-    <TypeScriptCompile Include="scripts\app\login\login.module.ts" />
+    <TypeScriptCompile Include="scripts\app\home\home.controller.ts" />
+    <TypeScriptCompile Include="scripts\app\home\home.interfaces.ts" />
+    <TypeScriptCompile Include="scripts\app\home\home.module.ts" />
+    <TypeScriptCompile Include="scripts\app\user\user.controller.ts" />
+    <TypeScriptCompile Include="scripts\app\user\user.interfaces.ts" />
+    <TypeScriptCompile Include="scripts\app\user\user.module.ts" />
     <TypeScriptCompile Include="scripts\typings\angular-jwt\angular-jwt.d.ts" />
     <TypeScriptCompile Include="scripts\typings\angular-storage\angular-storage.d.ts" />
     <TypeScriptCompile Include="scripts\typings\angularjs\angular-animate.d.ts" />
@@ -154,6 +180,21 @@
     <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
     <TypeScriptNoEmitOnError>True</TypeScriptNoEmitOnError>
     <TypeScriptSourceMap>True</TypeScriptSourceMap>
+    <TypeScriptMapRoot />
+    <TypeScriptSourceRoot />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <TypeScriptTarget>ES5</TypeScriptTarget>
+    <TypeScriptJSXEmit>None</TypeScriptJSXEmit>
+    <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
+    <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
+    <TypeScriptModuleKind>None</TypeScriptModuleKind>
+    <TypeScriptRemoveComments>False</TypeScriptRemoveComments>
+    <TypeScriptOutFile />
+    <TypeScriptOutDir />
+    <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
+    <TypeScriptNoEmitOnError>True</TypeScriptNoEmitOnError>
+    <TypeScriptSourceMap>False</TypeScriptSourceMap>
     <TypeScriptMapRoot />
     <TypeScriptSourceRoot />
   </PropertyGroup>

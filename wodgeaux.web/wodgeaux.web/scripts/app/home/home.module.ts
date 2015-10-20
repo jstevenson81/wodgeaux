@@ -1,8 +1,8 @@
-﻿module App.Login {
+﻿module App.Home {
     'use strict';
 
     angular
-        .module('app.login', [
+        .module('app.home', [
             'auth0',
             'angular-storage'
         ]);

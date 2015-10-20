@@ -1,16 +1,21 @@
 ﻿module App {
     'use strict';
 
-    export interface IAuthZeroAngular {
-        hookEvents(): void;
-        signin(options?: {}, successCallback?: Function, errorCallback?: Function, libName?: string);
-    }
+    var constants: IAppConstants = {
+        localStorage: {
+            userProfileStoreName: 'profile',
+            authTokenStoreName: 'token'
+        },
+        routes: {
+            defaultRoute: '/',
+            user: '/user'
+        }
+    };
 
-    export interface IAuthZeroAuthProvider {
-        init(options: {domain: string, clientID: string});
-    }
 
-    var run = (auth: IAuthZeroAngular) => {
+    var run = (
+        auth: IAuthZeroAngular) => {
+
         auth.hookEvents();
     };
 
@@ -18,17 +23,31 @@
 
     var config = (
         $locationProvider: angular.ILocationProvider,
-        authProvider: IAuthZeroAuthProvider) => {
+        authProvider: IAuthZeroAuthProvider,
+        $routeProvider: ng.route.IRouteProvider,
+    appConstants: IAppConstants) => {
+
+
+        authProvider.init({ domain: 'jsteve81.auth0.com', clientID: 'wycQ91mZPCrX53Wo9uxNPPF4ptREJyeI' });
+
+        $routeProvider
+            .when(appConstants.routes.defaultRoute, {
+                controllerAs: 'vm',
+                controller: 'home.controller',
+                templateUrl: '/scripts/app/home/template.htm'
+            })
+            .when(appConstants.routes.user, {
+                controllerAs: 'vm',
+                controller: 'user.controller',
+                templateUrl: '/scripts/app/user/template.htm'
+
+            });
 
         $locationProvider.html5Mode(true);
 
-        authProvider.init({
-            domain: 'jsteve81.auth0.com',
-            clientID: 'wycQ91mZPCrX53Wo9uxNPPF4ptREJyeI'
-        });
     };
 
-    config.$inject = ['$locationProvider', 'authProvider'];
+    config.$inject = ['$locationProvider', 'authProvider', '$routeProvider', 'app.constants'];
 
 
     angular
@@ -43,8 +62,9 @@
             'auth0',
 
             // app modules
-            'app.login'
+            'app.home'
         ])
+        .constant('app.constants', constants)
         .config(config)
         .run(run);
 }

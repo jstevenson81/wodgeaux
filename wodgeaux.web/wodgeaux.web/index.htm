@@ -1,13 +1,21 @@
 ﻿<!DOCTYPE html>
 <html ng-app="app">
 <head>
-    <title></title>
+    <title>{{vm.title}}</title>
     <meta charset="utf-8"/>
-    <base href="/" />
-</head>
-<body ng-controller="login.controller as vm">
-<button ng-click="vm.login()">Login</button>
+    <base href="/"/>
 
+    <link href="content/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+    <link href="content/wodgeaux/css/wodgeaux.css" rel="stylesheet" />
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 col-xs-12 wodgeaux-header">
+            
+        </div>
+    </div>
+</div>
 
 <script src="scripts/lib/jquery.js"></script>
 <script src="scripts/lib/bootstrap.js"></script>
@@ -20,8 +28,11 @@
 <script src="scripts/lib/auth0-angular.js"></script>
 
     <script src="scripts/app/app.js"></script>
-    <script src="scripts/app/login/login.module.js"></script>
-<script src="scripts/app/login/login.controller.js"></script>
+    <script src="scripts/app/home/home.module.js"></script>
+    <script src="scripts/app/user/user.module.js"></script>
+    <script src="scripts/app/home/home.controller.js"></script>
+    <script src="scripts/app/user/user.controller.js"></script>
+
 
 </body>
 </html>
