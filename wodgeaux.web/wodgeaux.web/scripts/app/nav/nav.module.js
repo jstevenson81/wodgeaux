@@ -4,9 +4,6 @@ var App;
     (function (Home) {
         'use strict';
         angular
-            .module('app.home', [
-            'auth0',
-            'angular-storage'
-        ]);
+            .module('app.nav', []);
     })(Home = App.Home || (App.Home = {}));
 })(App || (App = {}));

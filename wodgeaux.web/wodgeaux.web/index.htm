@@ -6,16 +6,38 @@
     <base href="/"/>
 
     <link href="content/bootstrap/css/bootstrap.css" rel="stylesheet"/>
-    <link href="content/wodgeaux/css/wodgeaux.css" rel="stylesheet" />
+    <link href="content/bootstrap/css/grayscale.css" rel="stylesheet"/>
+    <link href="content/wodgeaux/css/wodgeaux.css" rel="stylesheet"/>
+    <link href="content/font-awesome/css/font-awesome.css" rel="stylesheet"/>
 </head>
 <body>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-12 col-xs-12 wodgeaux-header">
-            
+<!-- Navigation -->
+<nav class="navbar navbar-custom" role="navigation" ng-controller="nav.controller as vm">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand page-scroll" href="/">
+                <i class="fa fa-clock-o"></i> <span class="light">wodgeaux</span> your wod log
+            </a>
         </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+            <ul class="nav navbar-nav">
+                <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                <li class="hidden">
+                    <a href="/"></a>
+                </li>
+                <li><a href="javascript:;" ng-click="vm.login()">Login</a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
     </div>
-</div>
+    <!-- /.container -->
+</nav>
+
+<div class="container" ng-view=""></div>
 
 <script src="scripts/lib/jquery.js"></script>
 <script src="scripts/lib/bootstrap.js"></script>
@@ -26,12 +48,15 @@
 <script src="scripts/lib/angular-jwt.js"></script>
 <script src="scripts/lib/auth0-lock.js"></script>
 <script src="scripts/lib/auth0-angular.js"></script>
+<script src="scripts/lib/grayscale.js"></script>
 
-    <script src="scripts/app/app.js"></script>
-    <script src="scripts/app/home/home.module.js"></script>
-    <script src="scripts/app/user/user.module.js"></script>
-    <script src="scripts/app/home/home.controller.js"></script>
-    <script src="scripts/app/user/user.controller.js"></script>
+<script src="scripts/app/app.js"></script>
+<script src="scripts/app/home/home.module.js"></script>
+<script src="scripts/app/user/user.module.js"></script>
+<script src="scripts/app/nav/nav.module.js"></script>
+<script src="scripts/app/home/home.controller.js"></script>
+<script src="scripts/app/user/user.controller.js"></script>
+<script src="scripts/app/nav/nav.controller.js"></script>
 
 
 </body>

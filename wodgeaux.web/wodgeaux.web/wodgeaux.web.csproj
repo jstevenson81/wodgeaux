@@ -86,6 +86,8 @@
   <ItemGroup>
     <Content Include="content\bootstrap\css\bootstrap.css" />
     <Content Include="content\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="content\bootstrap\css\grayscale.css" />
+    <Content Include="content\font-awesome\css\font-awesome.css" />
     <Content Include="content\wodgeaux\css\wodgeaux.css">
       <DependentUpon>wodgeaux.less</DependentUpon>
     </Content>
@@ -95,6 +97,7 @@
     <Content Include="content\wodgeaux\images\header-background.jpg" />
     <Content Include="Global.asax" />
     <Content Include="index.htm" />
+    <Content Include="scripts\app\nav\template.htm" />
     <Content Include="scripts\app\home\template.htm" />
     <Content Include="scripts\app\user\template.htm" />
     <Content Include="scripts\lib\angular-cookies.js" />
@@ -105,6 +108,7 @@
     <Content Include="scripts\lib\auth0-angular.js" />
     <Content Include="scripts\lib\auth0-lock.js" />
     <Content Include="scripts\lib\bootstrap.js" />
+    <Content Include="scripts\lib\grayscale.js" />
     <Content Include="scripts\lib\jquery.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -136,12 +140,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="content\font-awesome\fonts\" />
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="scripts\app\app.interfaces.ts" />
     <TypeScriptCompile Include="scripts\app\app.ts" />
+    <TypeScriptCompile Include="scripts\app\nav\nav.interfaces.ts" />
+    <TypeScriptCompile Include="scripts\app\nav\nav.controller.ts" />
+    <TypeScriptCompile Include="scripts\app\nav\nav.module.ts" />
     <TypeScriptCompile Include="scripts\app\home\home.controller.ts" />
     <TypeScriptCompile Include="scripts\app\home\home.interfaces.ts" />
     <TypeScriptCompile Include="scripts\app\home\home.module.ts" />

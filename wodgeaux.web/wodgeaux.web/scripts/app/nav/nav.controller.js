@@ -1,10 +1,10 @@
 var App;
 (function (App) {
-    var Home;
-    (function (Home) {
+    var Nav;
+    (function (Nav) {
         'use strict';
-        var HomeController = (function () {
-            function HomeController(auth, store, $location, appConstants) {
+        var NavController = (function () {
+            function NavController(auth, store, $location, appConstants) {
                 var _this = this;
                 this.auth = auth;
                 this.store = store;
@@ -19,12 +19,12 @@ var App;
                     });
                 };
             }
-            HomeController.$inject = ['auth', 'store', '$location', 'app.constants'];
-            return HomeController;
+            NavController.$inject = ['auth', 'store', '$location', 'app.constants'];
+            return NavController;
         })();
-        Home.HomeController = HomeController;
+        Nav.NavController = NavController;
         angular
-            .module('app.home')
-            .controller('home.controller', HomeController);
-    })(Home = App.Home || (App.Home = {}));
+            .module('app.nav')
+            .controller('nav.controller', NavController);
+    })(Nav = App.Nav || (App.Nav = {}));
 })(App || (App = {}));

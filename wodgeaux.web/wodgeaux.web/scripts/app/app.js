@@ -41,10 +41,10 @@ var App;
         'angular-jwt',
         'auth0',
         // app modules
-        'app.home'
+        'app.home',
+        'app.nav'
     ])
         .constant('app.constants', constants)
         .config(config)
         .run(run);
 })(App || (App = {}));
-//# sourceMappingURL=app.js.map

@@ -7,4 +7,3 @@ var App;
             .module('app.user', []);
     })(User = App.User || (App.User = {}));
 })(App || (App = {}));
-//# sourceMappingURL=user.module.js.map

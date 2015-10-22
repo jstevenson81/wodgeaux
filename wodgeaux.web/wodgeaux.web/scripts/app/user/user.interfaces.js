@@ -13,4 +13,3 @@ var App;
             .controller('user.controller', UserController);
     })(User = App.User || (App.User = {}));
 })(App || (App = {}));
-//# sourceMappingURL=user.interfaces.js.map

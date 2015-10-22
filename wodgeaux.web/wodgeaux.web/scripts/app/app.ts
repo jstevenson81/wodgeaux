@@ -62,7 +62,9 @@
             'auth0',
 
             // app modules
-            'app.home'
+            'app.home',
+            'app.nav'
+
         ])
         .constant('app.constants', constants)
         .config(config)
