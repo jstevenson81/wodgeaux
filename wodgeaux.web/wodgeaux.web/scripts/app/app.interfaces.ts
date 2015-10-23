@@ -4,6 +4,7 @@
     export interface IAuthZeroAngular {
         hookEvents(): void;
         signin(options?: {}, successCallback?: Function, errorCallback?: Function, libName?: string);
+        signout(): void;
     }
 
     export interface IAuthZeroAuthProvider {

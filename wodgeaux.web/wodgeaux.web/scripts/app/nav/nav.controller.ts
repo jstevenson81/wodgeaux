@@ -12,15 +12,27 @@
         ) { }
 
         title = 'wodgeaux.com - woderific!';
+        userIsLoggedIn = false;
 
         login = () => {
             this.auth.signin({ sso: false, rememberLastLogin: false }, (profile: {}, token: string) => {
 
                 this.store.set(this.appConstants.localStorage.userProfileStoreName, profile);
                 this.store.set(this.appConstants.localStorage.authTokenStoreName, token);
+                this.userIsLoggedIn = true;
 
                 this.$location.path(this.appConstants.routes.user);
             });
+        }
+
+        logout = () => {
+            this.auth.signout();
+            this.store.remove(this.appConstants.localStorage.userProfileStoreName);
+            this.store.remove(this.appConstants.localStorage.authTokenStoreName);
+            this.userIsLoggedIn = false;
+
+            this.$location.path(this.appConstants.routes.defaultRoute);
+
         }
     }
 
