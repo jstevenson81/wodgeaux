@@ -85,9 +85,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="content\bootstrap\css\bootstrap.css" />
+    <Content Include="content\bootstrap\css\freelancer.css" />
     <Content Include="content\bootstrap\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="content\bootstrap\css\grayscale.css" />
     <Content Include="content\font-awesome\css\font-awesome.css" />
+    <Content Include="content\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="content\wodgeaux\css\wodgeaux.css">
       <DependentUpon>wodgeaux.less</DependentUpon>
     </Content>
@@ -130,6 +132,10 @@
     <Content Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </Content>
+    <Content Include="content\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="content\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="content\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="content\font-awesome\fonts\FontAwesome.otf" />
     <None Include="Properties\PublishProfiles\iristestapp.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -140,7 +146,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="content\font-awesome\fonts\" />
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>

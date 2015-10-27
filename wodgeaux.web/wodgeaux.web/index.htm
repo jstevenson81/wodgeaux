@@ -6,59 +6,71 @@
     <base href="/"/>
 
     <link href="content/bootstrap/css/bootstrap.css" rel="stylesheet"/>
-    <link href="content/bootstrap/css/grayscale.css" rel="stylesheet" />
+    <link href="content/bootstrap/css/freelancer.css" rel="stylesheet"/>
     <link href="content/wodgeaux/css/wodgeaux.css" rel="stylesheet"/>
     <link href="content/font-awesome/css/font-awesome.css" rel="stylesheet"/>
 </head>
 <body>
-<!-- Navigation -->
-<nav class="navbar navbar-custom" role="navigation" ng-controller="nav.controller as vm">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                <i class="fa fa-bars"></i>
-            </button>
-            <a class="navbar-brand page-scroll" href="/">
-                <i class="fa fa-clock-o"></i> <span class="light">wodgeaux</span> your wod log
-            </a>
-        </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-            <ul class="nav navbar-nav">
-                <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-                <li class="hidden">
-                    <a href="/"></a>
-                </li>
-                <li ng-show="!vm.userIsLoggedIn"><a href="javascript:;" ng-click="vm.login()">Login</a></li>
-                <li ng-show="vm.userIsLoggedIn"><a href="javascript:;" ng-click="vm.logout()">Logout</a></li>
-                <li ng-show="vm.userIsLoggedIn"><a href="/user">My Wods</a></li>
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container -->
-</nav>
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top" ng-controller="nav.controller as vm">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">
+                    <i class="fa fa-clock-o"></i> <span class="light">wodgeaux</span> your wod log
+                </a>
+            </div>
 
-<div class="container" ng-view=""></div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li ng-show="!vm.userIsLoggedIn">
+                        <a href="javascript:;" ng-click="vm.login()">Login</a>
+                    </li>
+                    <li ng-show="vm.userIsLoggedIn">
+                        <a href="javascript:;" ng-click="vm.logout()">Logout</a>
+                    </li>
+                    <li class="dropdown" ng-show="vm.userIsLoggedIn">
+                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="javascript:;">Link me</a></li>
+                        </ul>
+                    </li>
 
-<script src="scripts/lib/jquery.js"></script>
-<script src="scripts/lib/bootstrap.js"></script>
-<script src="scripts/lib/angular.js"></script>
-<script src="scripts/lib/angular-route.js"></script>
-<script src="scripts/lib/angular-cookies.js"></script>
-<script src="scripts/lib/angular-storage.js"></script>
-<script src="scripts/lib/angular-jwt.js"></script>
-<script src="scripts/lib/auth0-lock.js"></script>
-<script src="scripts/lib/auth0-angular.js"></script>
-<script src="scripts/lib/grayscale.js"></script>
+                    <li ng-show="vm.userIsLoggedIn">
+                        <a href="/user">My Wods</a>
+                    </li>
 
-<script src="scripts/app/app.js"></script>
-<script src="scripts/app/home/home.module.js"></script>
-<script src="scripts/app/user/user.module.js"></script>
-<script src="scripts/app/nav/nav.module.js"></script>
-<script src="scripts/app/home/home.controller.js"></script>
-<script src="scripts/app/user/user.controller.js"></script>
-<script src="scripts/app/nav/nav.controller.js"></script>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <div class="container main-content" ng-view=""></div>
+
+    <script src="scripts/lib/jquery.js"></script>
+    <script src="scripts/lib/bootstrap.js"></script>
+    <script src="scripts/lib/angular.js"></script>
+    <script src="scripts/lib/angular-route.js"></script>
+    <script src="scripts/lib/angular-cookies.js"></script>
+    <script src="scripts/lib/angular-storage.js"></script>
+    <script src="scripts/lib/angular-jwt.js"></script>
+    <script src="scripts/lib/auth0-lock.js"></script>
+    <script src="scripts/lib/auth0-angular.js"></script>
+
+    <script src="scripts/app/app.js"></script>
+    <script src="scripts/app/home/home.module.js"></script>
+    <script src="scripts/app/user/user.module.js"></script>
+    <script src="scripts/app/nav/nav.module.js"></script>
+    <script src="scripts/app/home/home.controller.js"></script>
+    <script src="scripts/app/user/user.controller.js"></script>
+    <script src="scripts/app/nav/nav.controller.js"></script>
 
 
 </body>
