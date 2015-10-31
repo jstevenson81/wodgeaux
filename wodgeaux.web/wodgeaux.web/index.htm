@@ -33,17 +33,16 @@
                     <li ng-show="!vm.userIsLoggedIn">
                         <a href="javascript:;" ng-click="vm.login()">Login</a>
                     </li>
-                    <li ng-show="vm.userIsLoggedIn">
+                    <li ng-show="vm.userIsLoggedIn" class="ng-hide">
                         <a href="javascript:;" ng-click="vm.logout()">Logout</a>
                     </li>
-                    <li class="dropdown" ng-show="vm.userIsLoggedIn">
+                    <li class="dropdown ng-hide" ng-show="vm.userIsLoggedIn">
                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="javascript:;">Link me</a></li>
                         </ul>
                     </li>
-
-                    <li ng-show="vm.userIsLoggedIn">
+                    <li ng-show="vm.userIsLoggedIn" class="ng-hide">
                         <a href="/user">My Wods</a>
                     </li>
 
