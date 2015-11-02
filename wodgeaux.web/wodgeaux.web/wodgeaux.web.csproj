@@ -96,7 +96,7 @@
     <Content Include="content\wodgeaux\css\wodgeaux.min.css">
       <DependentUpon>wodgeaux.css</DependentUpon>
     </Content>
-    <Content Include="content\wodgeaux\images\header-background.jpg" />
+    <Content Include="content\wodgeaux\images\header-background.png" />
     <Content Include="Global.asax" />
     <Content Include="index.htm" />
     <Content Include="scripts\app\nav\template.htm" />
