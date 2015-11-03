@@ -19,7 +19,7 @@
         auth.hookEvents();
     };
 
-    run.$inject = ['auth'];
+    run.$inject = ['auth', '$rootScope'];
 
     var config = (
         $locationProvider: angular.ILocationProvider,
@@ -63,6 +63,7 @@
 
             // app modules
             'app.home',
+            'app.user',
             'app.nav'
 
         ])

@@ -96,6 +96,7 @@
     <Content Include="content\wodgeaux\css\wodgeaux.min.css">
       <DependentUpon>wodgeaux.css</DependentUpon>
     </Content>
+    <Content Include="content\wodgeaux\images\barbell.ico" />
     <Content Include="content\wodgeaux\images\header-background.png" />
     <Content Include="Global.asax" />
     <Content Include="index.htm" />
@@ -158,6 +159,7 @@
     <TypeScriptCompile Include="scripts\app\home\home.controller.ts" />
     <TypeScriptCompile Include="scripts\app\home\home.interfaces.ts" />
     <TypeScriptCompile Include="scripts\app\home\home.module.ts" />
+    <TypeScriptCompile Include="scripts\app\shared\shared.module.ts" />
     <TypeScriptCompile Include="scripts\app\user\user.controller.ts" />
     <TypeScriptCompile Include="scripts\app\user\user.interfaces.ts" />
     <TypeScriptCompile Include="scripts\app\user\user.module.ts" />
