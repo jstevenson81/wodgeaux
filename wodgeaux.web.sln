@@ -5,6 +5,13 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wodgeaux.web", "src\wodgeaux.web.csproj", "{28BA7033-B1B6-4FE8-8A54-336E580BA7CF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. build files", "1. build files", "{0FC24AB0-BC63-4D5B-B115-62C3E6F9E4C6}"
+	ProjectSection(SolutionItems) = preProject
+		gulpfile.js = gulpfile.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. src", "2. src", "{50363205-7BFB-4CB2-9E9F-4E5FBF81430B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +25,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{28BA7033-B1B6-4FE8-8A54-336E580BA7CF} = {50363205-7BFB-4CB2-9E9F-4E5FBF81430B}
 	EndGlobalSection
 EndGlobal

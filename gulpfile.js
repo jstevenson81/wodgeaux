@@ -6,12 +6,12 @@ var
     args = require('yargs').argv,
     del = require('del'),
     gulp = require('gulp');
-	
+
 gulp.task('clean-app', function() {
-	
-	return clean(app + '**/*.js*');
-	
-})
+
+    return clean(app + '**/*.js*');
+
+});
 	
 	
 function clean(path, done) {

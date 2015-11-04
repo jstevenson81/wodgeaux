@@ -1,3 +1,26 @@
+## [6.7.6] - 2016-10-26
+
+### Fixed
+
+- [] Revert changes from v6.7.5 as they are breaking appliance customers who are not on the latest version of Auth0 (`Peter Stromquist`)
+  https://github.com/auth0/auth0.js/commit/25a41e57d5ecb250b9b994891b8b9628bcdc2210
+
+## [6.7.5] - 2015-10-26
+
+### Fixed
+
+- [] Disallow jsonp to get SSO data (`Gabriel Andretta`)
+  https://github.com/auth0/auth0.js/commit/344c4a91ebf447fe91f5c443ab7389fdac759415
+
+## [6.7.4] - 2015-10-09
+
+### Fixed
+
+- [] Merge pull request #119 from toamitkumar/master (`Sandrino Di Mattia`)
+  https://github.com/auth0/auth0.js/commit/2ce4ac4ee4e374a87bc0e1e95551deaa4396d010
+- [] Added https support to help install behind the proxy firewall (`Amit Kumar`)
+  https://github.com/auth0/auth0.js/commit/57151e72bb1474d5a237722c765bae7c0428a2e2
+
 ## [6.7.3] - 2015-09-29
 
 ### Fixed

@@ -9,6 +9,7 @@
             $window: ng.IWindowService
         ) {
             $window.document.title = 'Welcome inside your WOD manager!';
+            $('#workouts').kendoComboBox();
         }
     }
 
