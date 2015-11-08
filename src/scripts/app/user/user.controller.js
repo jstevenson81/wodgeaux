@@ -6,7 +6,8 @@ var App;
         var UserController = (function () {
             function UserController($window) {
                 $window.document.title = 'Welcome inside your WOD manager!';
-                $('#workouts').kendoComboBox();
+                $('#workouts').kendoComboBox({ filter: 'contains', suggest: true });
+                //$('#btn').kendoButton();
             }
             UserController.$inject = ['$window'];
             return UserController;
