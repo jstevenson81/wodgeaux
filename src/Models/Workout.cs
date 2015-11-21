@@ -34,7 +34,7 @@ namespace wodgeaux.web.Models
         public Workout Workout { get; set; }
     }
 
-    public class Context : DbContext
+    public class WodgeauxContext : DbContext
     {
         public DbSet<Workout> Workouts { get; set; }
         public DbSet<UserMovement> UserMovements { get; set; } 

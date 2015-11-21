@@ -3,7 +3,7 @@ using wodgeaux.web.Models;
 
 namespace wodgeaux.web.Migrations
 {
-    internal sealed class Configuration : DbMigrationsConfiguration<Context>
+    internal sealed class Configuration : DbMigrationsConfiguration<WodgeauxContext>
     {
         public Configuration()
         {
@@ -11,7 +11,7 @@ namespace wodgeaux.web.Migrations
             ContextKey = "wodgeaux.web.Models.Context";
         }
 
-        protected override void Seed(Context context)
+        protected override void Seed(WodgeauxContext context)
         {
             //  This method will be called after migrating to the latest version.
 

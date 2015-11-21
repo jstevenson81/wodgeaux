@@ -15,7 +15,7 @@ namespace wodgeaux.web.Controllers
         [HttpPut]
         public async Task<IHttpActionResult> Put()
         {
-            using (var context = new Context())
+            using (var context = new WodgeauxContext())
             {
                 var workout = context.Workouts.Add(new Workout {WorkoutDate = DateTime.Now});
                 context.UserMovements.Add(new UserMovement {WorkoutId = workout.Id});
