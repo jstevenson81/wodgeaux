@@ -1,5 +1,5 @@
 /*
-* Kendo UI v2015.3.1023 (http://www.telerik.com/kendo-ui)
+* Kendo UI v2015.3.1116 (http://www.telerik.com/kendo-ui)
 * Copyright 2015 Telerik AD. All rights reserved.
 *
 * Kendo UI commercial licenses may be obtained at
@@ -47,7 +47,6 @@
         STATE_FOCUSED = "k-state-focused",
         STATE_DEFAULT = "k-state-default",
         STATE_DISABLED = "k-state-disabled",
-        PRECISION = 3,
         DISABLED = "disabled",
         UNDEFINED = "undefined",
         TABINDEX = "tabindex",
@@ -618,9 +617,27 @@
         return (value + "").replace(".", kendo.cultures.current.numberFormat["."]);
     }
 
+    function calculatePrecision(value) {
+        var number = value.toString();
+        var precision = 0;
+
+        number = number.split(".");
+
+        if (number[1]) {
+            precision = number[1].length;
+        }
+
+        precision = precision > 10 ? 10 : precision;
+        return precision;
+    }
+
     function round(value) {
+        var precision, power;
+
         value = parseFloat(value, 10);
-        var power = math.pow(10, PRECISION || 0);
+        precision = calculatePrecision(value);
+        power = math.pow(10, precision || 0);
+
         return math.round(value * power) / power;
     }
 
@@ -993,7 +1010,8 @@
             this.owner._activeDragHandle = this;
             // HACK to initiate click on the line
             this.draggable.userEvents.cancel();
-            this.draggable.userEvents._start(e);
+            this._dragstart(e);
+            this.dragend();
         },
 
         _dragstart: function(e) {
@@ -1114,7 +1132,6 @@
 
                 owner.trigger(SLIDE, slideParams);
             }
-
             that._updateTooltip(that.val);
         },
 
@@ -1161,6 +1178,7 @@
                 that.draggable.userEvents._disposeAll();
             }
 
+            that.draggable.userEvents.cancel();
             return that._end();
         },
 

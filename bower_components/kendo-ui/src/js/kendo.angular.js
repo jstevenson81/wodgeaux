@@ -1,5 +1,5 @@
 /*
-* Kendo UI v2015.3.1023 (http://www.telerik.com/kendo-ui)
+* Kendo UI v2015.3.1116 (http://www.telerik.com/kendo-ui)
 * Copyright 2015 Telerik AD. All rights reserved.
 *
 * Kendo UI commercial licenses may be obtained at
@@ -267,7 +267,7 @@
 
 
         $.each(attrs, function(name, value) {
-            if (name === "source" || name === "kDataSource" || name === "kScopeField") {
+            if (name === "source" || name === "kDataSource" || name === "kScopeField" || name === "scopeField") {
                 return;
             }
 
@@ -405,10 +405,18 @@
             setTimeout(function(){
                 if (widget) { // might have been destroyed in between. :-(
                     var kNgModel = scope[widget.element.attr("k-ng-model")];
+
                     if (kNgModel) {
                         val = kNgModel;
                     }
-                    widget.value(val);
+
+                    if (widget.options.autoBind === false && !widget.listView.isBound()) {
+                        if (val) {
+                            widget.value(val);
+                        }
+                    } else {
+                        widget.value(val);
+                    }
                 }
             }, 0);
         };
@@ -530,9 +538,10 @@
                 ngForm.$setDirty();
             }
 
-            scope.$apply(function(){
+            digest(scope, function(){
                 setter(scope, widget.$angular_getLogicValue());
             });
+
             updating = false;
         });
     }
@@ -827,7 +836,7 @@
                         replace  : true,
                         template : function(element, attributes) {
                             var tag = TAGNAMES[className] || "div";
-                            var scopeField = attributes.kScopeField;
+                            var scopeField = attributes.kScopeField || attributes.scopeField;
 
                             return "<" + tag + " " + dashed + (scopeField ? ('="' + scopeField + '"') : "") + ">" + element.html() + "</" + tag + ">";
                         }

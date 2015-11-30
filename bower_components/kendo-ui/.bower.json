@@ -1,6 +1,6 @@
 {
   "name": "kendo-ui",
-  "version": "2015.3.1023+SP1",
+  "version": "2015.3.1116+SP1",
   "dependencies": {
     "jquery": ">=1.9.1 <=2.1.1"
   },
@@ -31,11 +31,11 @@
     "test",
     "tests"
   ],
-  "_release": "2015.3.1023+SP1",
+  "_release": "2015.3.1116+SP1",
   "_resolution": {
     "type": "version",
-    "tag": "2015.3.1023+SP1",
-    "commit": "cde993a5f6e77912baeda7d62d3106e14fc2474e"
+    "tag": "2015.3.1116+SP1",
+    "commit": "99a9c76d278796e9b7a752669e082182021054f8"
   },
   "_source": "https://bower.telerik.com/bower-kendo-ui.git",
   "_target": "*",
