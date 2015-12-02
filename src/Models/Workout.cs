@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
-using System.Linq;
-using System.Security.Permissions;
-using System.Web;
 
 namespace wodgeaux.web.Models
 {
@@ -19,17 +16,23 @@ namespace wodgeaux.web.Models
 
     public class Workout : EntityBase
     {
+        [MaxLength(255)]
         public string Name { get; set; }
         public List<WorkoutMovement> WorkoutMovements { get; set; }
     }
 
     public class WorkoutMovement : EntityBase
     {
-        public int MovementId { get; set; }
+        [Required]
+        public int Repetitions { get; set; }
 
-        [ForeignKey("MovementId")]
-        public Movement Movement { get; set; }
+        [Required]
+        public int MovementMeasurementId { get; set; }
 
+        [ForeignKey("MovementMeasurementId")]
+        public MovementMeasurement MovementMeasurement { get; set; }
+
+        [Required]
         public int WorkoutId { get; set; }
 
         [ForeignKey("WorkoutId")]
@@ -37,61 +40,64 @@ namespace wodgeaux.web.Models
 
     }
 
-    /// <summary>
-    /// The type of movement:
-    /// Gymnastics Movement
-    /// Running
-    /// Press
-    /// Clean
-    /// Snatch
-    /// </summary>
     public class MovementType : EntityBase
     {
-
+        [Required]
+        [MaxLength(255)]
         public string Name { get; set; }
 
         public List<Movement> Movements { get; set; }
     }
 
-    /// <summary>
-    /// The movement
-    /// </summary>
+    public class UnitOfMeasure : EntityBase
+    {
+        [Required]
+        [MaxLength(255)]
+        public string System { get; set; }
+
+        public List<MovementMeasurement> MovementWeights { get; set; }
+    }
+
+    public class MovementMeasurement : EntityBase
+    {
+        [Required]
+        public double Measurement { get; set; }
+
+        [Required]
+        public int UnitOfMeasureId { get; set; }
+
+        [ForeignKey("UnitOfMeasureId")]
+        public UnitOfMeasure UnitOfMeasure { get; set; }
+
+        [Required]
+        public int MovementId { get; set; }
+
+        [ForeignKey("MovementId")]
+        public Movement Movement { get; set; }
+
+        public List<UserMovement> UserMovements { get; set; }
+        public List<WorkoutMovement> WorkoutMovements { get; set; }
+    }
+
     public class Movement : EntityBase
     {
-        /// <summary>
-        /// The foreign key to movement type
-        /// </summary>
         [Required]
         public int MovementTypeId { get; set; }
 
-        /// <summary>
-        /// The movement's movement type
-        /// </summary>
         [ForeignKey("MovementTypeId")]
         public MovementType MovementType { get; set; }
 
-        /// <summary>
-        /// The name of the movements
-        /// </summary>
+        [Required]
+        [MaxLength(255)]
         public string Name { get; set; }
 
-        /// <summary>
-        /// The movement standard as described in text
-        /// </summary>
+        [Required]
+        [MaxLength(255)]
         public string Standard { get; set; }
 
-        /// <summary>
-        /// A URL to the standard video
-        /// </summary>
+        [Required]
+        [MaxLength(255)]
         public string StandardVideoUrl { get; set; }
-
-        /// <summary>
-        /// The collection of workouts this movement belongs to.  It is a many to many
-        /// because one movement can be associated to more than one workout and more than
-        /// one workout can be associated to a movement.
-        /// </summary>
-        public List<WorkoutMovement> WorkoutMovements { get; set; }
-
     }
 
     public class UserWorkout
@@ -101,7 +107,6 @@ namespace wodgeaux.web.Models
         public int Id { get; set; }
 
         public DateTime? WorkoutDateTime { get; set; }
-        
 
         public List<UserMovement> MyMovements { get; set; }
     }
@@ -113,15 +118,27 @@ namespace wodgeaux.web.Models
         public int Id { get; set; }
 
         [Required]
-        public int WorkoutId { get; set; }
+        public int UserWorkoutId { get; set; }
 
-        [ForeignKey("WorkoutId")]
-        public Workout Workout { get; set; }
+        [ForeignKey("UserWorkoutId")]
+        public UserWorkout Workout { get; set; }
+
+        [Required]
+        public int MovementMeasurementId { get; set; }
+
+        [ForeignKey("MovementMeasurementId")]
+        public MovementMeasurement MovementMeasurement { get; set; }
     }
 
     public class WodgeauxContext : DbContext
     {
         public DbSet<Workout> Workouts { get; set; }
-        public DbSet<UserMovement> UserMovements { get; set; } 
+        public DbSet<WorkoutMovement> WorkoutMovements { get; set; }
+        public DbSet<MovementType> MovementTypes { get; set; }
+        public DbSet<UnitOfMeasure> UnitOfMeasures { get; set; }
+        public DbSet<MovementMeasurement> MovementMeasurements { get; set; }
+        public DbSet<Movement> Movements { get; set; }
+        public DbSet<UserWorkout> UserWorkouts { get; set; }
+        public DbSet<UserMovement> UserMovements { get; set; }
     }
 }

@@ -92,10 +92,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\wodgeaux.web.Models.Context.mdf" />
-    <Content Include="App_Data\wodgeaux.web.Models.Context_log.ldf">
-      <DependentUpon>wodgeaux.web.Models.Context.mdf</DependentUpon>
-    </Content>
     <Content Include="content\bootstrap\css\agency.css" />
     <Content Include="content\bootstrap\css\bootstrap.css" />
     <Content Include="content\bootstrap\fonts\glyphicons-halflings-regular.svg" />
@@ -469,13 +465,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201511210435437_InitialCreate.cs" />
-    <Compile Include="Migrations\201511210435437_InitialCreate.Designer.cs">
-      <DependentUpon>201511210435437_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201511210445291_Adding WorkoutDate to Workout table.cs" />
-    <Compile Include="Migrations\201511210445291_Adding WorkoutDate to Workout table.Designer.cs">
-      <DependentUpon>201511210445291_Adding WorkoutDate to Workout table.cs</DependentUpon>
+    <Compile Include="Migrations\201512020618298_Complete-Movement-Schema.cs" />
+    <Compile Include="Migrations\201512020618298_Complete-Movement-Schema.Designer.cs">
+      <DependentUpon>201512020618298_Complete-Movement-Schema.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Workout.cs" />
@@ -522,7 +514,6 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <TypeScriptCompile Include="scripts\app\app.interfaces.ts" />
     <TypeScriptCompile Include="scripts\app\app.ts" />
@@ -554,11 +545,11 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201511210435437_InitialCreate.resx">
-      <DependentUpon>201511210435437_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201511210445291_Adding WorkoutDate to Workout table.resx">
-      <DependentUpon>201511210445291_Adding WorkoutDate to Workout table.cs</DependentUpon>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201512020618298_Complete-Movement-Schema.resx">
+      <DependentUpon>201512020618298_Complete-Movement-Schema.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -17,10 +17,7 @@ namespace wodgeaux.web.Controllers
         {
             using (var context = new WodgeauxContext())
             {
-                var workout = context.Workouts.Add(new Workout {WorkoutDate = DateTime.Now});
-                context.UserMovements.Add(new UserMovement {WorkoutId = workout.Id});
-                await context.SaveChangesAsync();
-                return Ok();
+                return null;
             }
         }
     }
